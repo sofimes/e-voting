@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MdHowToVote, MdPeopleAlt } from "react-icons/md"; // Ensure you import the necessary icons
 import img4 from "../assets/images/stats-img.jpg";
+import { useState } from "react";
 const VoteCounter = ({ voteCount }) => {
   return (
     <motion.section
