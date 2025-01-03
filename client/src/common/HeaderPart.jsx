@@ -1,14 +1,25 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-
+import axios from "../utils/api";
+import { AppState } from "../App";
 const HeaderPart = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { user, setUser } = useContext(AppState);
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  const handleLogout = async () => {
+    try {
+      await axios.post("/logout");
+      setUser(null);
+      sessionStorage.removeItem("user");
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   return (
     <>
       <header className="bg-headbg fixed text-white py-2 lg:py-1 transition-all duration-500 z-[997] items-center top-0 flex w-full">
@@ -94,13 +105,21 @@ const HeaderPart = () => {
             </ul>
           </nav>
 
-          {/* Get Started Button (desktop view) */}
-          <Link
-            to="/login"
-            className="hidden lg:block text-white text-sm px-5 py-2 ml-[30px] border-2 border-cyan-500 transition duration-300 hover:text-default-color hover:bg-accentcolor rounded-xl"
-          >
-            Get Started
-          </Link>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="hidden lg:block text-white text-sm px-5 py-2 ml-[30px] border-2 border-cyan-500 transition duration-300 hover:text-default-color hover:bg-accentcolor rounded-xl"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="hidden lg:block text-white text-sm px-5 py-2 ml-[30px] border-2 border-cyan-500 transition duration-300 hover:text-default-color hover:bg-accentcolor rounded-xl"
+            >
+              Get Started
+            </Link>
+          )}
         </div>
       </header>
     </>
