@@ -12,7 +12,7 @@ const HeaderPart = () => {
   };
   const handleLogout = async () => {
     try {
-      await axios.post("/logout");
+      await axios.post("/auth/logout");
       setUser(null);
       sessionStorage.removeItem("user");
       navigate("/login");
