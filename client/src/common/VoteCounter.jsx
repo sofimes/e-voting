@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MdHowToVote, MdPeopleAlt } from "react-icons/md"; // Ensure you import the necessary icons
 import img4 from "../assets/images/stats-img.jpg";
-const VoteCounter = () => {
+const VoteCounter = ({ voteCount }) => {
   return (
     <motion.section
       className="relative vote-counter clip-inset-0 py-20 scroll-mt-20 overflow-clip"
@@ -62,7 +62,7 @@ const VoteCounter = () => {
                   <div>
                     <span
                       data-purecounter-start="0"
-                      data-purecounter-end="232"
+                      data-purecounter-end={`${voteCount}`}
                       data-purecounter-duration="1"
                       className="purecounter text-[40px] font-bold block"
                     ></span>
@@ -71,9 +71,7 @@ const VoteCounter = () => {
                         Votes
                       </strong>
                       <br />
-                      <span className="text-xl text-contrastcolor">
-                        {/* Consequuntur quae */}
-                      </span>
+                      <span className="text-xl text-contrastcolor"></span>
                     </p>
                   </div>
                 </div>

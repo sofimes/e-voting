@@ -8,17 +8,19 @@ import VoteFeatures from "../common/VoteFeatures";
 import CallToAction from "../common/CallAction";
 import VoteCounter from "../common/VoteCounter";
 import Footer from "../common/Footer";
+import { useVote } from "../context/VoteContext";
 const Home = () => {
   useEffect(() => {
     new PureCounter(); // Initialize the counter
   }, []);
+  const { voteCount } = useVote();
   return (
     <>
       <HeaderPart />
       <Main />
       <VoteFeatures />
       <CallToAction />
-      <VoteCounter />
+      <VoteCounter voteCount={voteCount} />
       <Testimonial />
       <Footer />
     </>

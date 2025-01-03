@@ -13,7 +13,7 @@ import VoterManagement from "./components/VoterManagement";
 import NomineeManagement from "./components/NomineeManagement";
 import Dashboard from "./components/Dashboard";
 import AddNominee from "./components/AddNominee";
-
+import { VoteProvider } from "./context/VoteContext";
 export const AppState = createContext();
 
 function App() {
@@ -31,41 +31,43 @@ function App() {
   }, []);
 
   return (
-    <AppState.Provider value={{ user, setUser }}>
-      <Routes>
-        <Route path="/" element={isLoading ? <Loader /> : <Home />} />
-        <Route
-          path="/login"
-          element={user ? <Navigate to="/" /> : <LoginPage />}
-        />
-        <Route
-          path="/signup"
-          element={user ? <Navigate to="/" /> : <SignupPage />}
-        />
+    <VoteProvider>
+      <AppState.Provider value={{ user, setUser }}>
+        <Routes>
+          <Route path="/" element={isLoading ? <Loader /> : <Home />} />
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/" /> : <LoginPage />}
+          />
+          <Route
+            path="/signup"
+            element={user ? <Navigate to="/" /> : <SignupPage />}
+          />
 
-        <Route
-          path="/vote"
-          element={
-            <ProtectedRoute requiredRole={["user", "admin"]}>
-              {<Vote />}{" "}
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin-dashboard/"
-          element={
-            <ProtectedRoute requiredRole="admin">
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="voter-management" element={<VoterManagement />} />
-          <Route path="nominee-management" element={<NomineeManagement />} />
-          <Route path="add-nominee" element={<AddNominee />} />
-        </Route>
-      </Routes>
-    </AppState.Provider>
+          <Route
+            path="/vote"
+            element={
+              <ProtectedRoute requiredRole={["user", "admin"]}>
+                {<Vote />}{" "}
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin-dashboard/"
+            element={
+              <ProtectedRoute requiredRole="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="voter-management" element={<VoterManagement />} />
+            <Route path="nominee-management" element={<NomineeManagement />} />
+            <Route path="add-nominee" element={<AddNominee />} />
+          </Route>
+        </Routes>
+      </AppState.Provider>
+    </VoteProvider>
   );
 }
 

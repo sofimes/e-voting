@@ -93,14 +93,25 @@ const HeaderPart = () => {
                   menuOpen ? "block text-center w-full" : "hidden"
                 }`}
               >
-                <Link
-                  to="/login"
-                  className="block text-white text-sm px-5 py-2 mx-auto w-[20%] border-2 border-cyan-500 transition duration-300 hover:text-default-color 
+                {user ? (
+                  <button
+                    onClick={handleLogout}
+                    className="block text-white text-sm px-5 py-2 mx-auto w-[20%] border-2 border-cyan-500 transition duration-300 hover:text-default-color 
                   xs:w-[30%]
                   hover:bg-accentcolor rounded-xl"
-                >
-                  Get Started
-                </Link>
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="block text-white text-sm px-5 py-2 mx-auto w-[20%] border-2 border-cyan-500 transition duration-300 hover:text-default-color 
+                  xs:w-[30%]
+                  hover:bg-accentcolor rounded-xl"
+                  >
+                    Get Started
+                  </Link>
+                )}
               </li>
             </ul>
           </nav>
