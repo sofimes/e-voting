@@ -16,35 +16,35 @@ const Testimonials = () => {
       role: "Ceo & Founder",
       image: img1,
       review:
-        "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.",
+        "This voting platform made participating in elections easier than ever, and I feel my voice truly counts!",
     },
     {
       name: "Sara Wilsson",
       role: "Designer",
       image: img2,
       review:
-        "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum.",
+        "I love how seamless the voting process is; it’s quick, secure, and user-friendly.",
     },
     {
       name: "Jena Karlis",
       role: "Store Owner",
       image: img3,
       review:
-        "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam.",
+        "A fantastic experience—voting has never been so accessible, and I appreciate the real-time updates.",
     },
     {
       name: "Matt Brandon",
       role: "Freelancer",
       image: img4,
       review:
-        "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat.",
+        "The platform's interface is smooth, and I can vote with confidence knowing my vote is secure.",
     },
     {
       name: "John Larson",
       role: "Entrepreneur",
       image: img5,
       review:
-        "Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam.",
+        "Such an innovative approach to voting; it's efficient and empowers me to engage in the process like never before.",
     },
   ];
 
@@ -76,14 +76,13 @@ const Testimonials = () => {
         </motion.div>
 
         <Carousel
-          infiniteLoop={true} // Enable infinite looping of slides
-          autoPlay={true} // Enable autoplay
-          interval={3000} // Set autoplay interval to 3 seconds
-          showStatus={false} // Disable status showing (current slide number)
-          showThumbs={false} // Disable thumbnail previews
-          showArrows={false} // Disable arrow navigation buttons
-          transitionTime={600} // Set transition speed between slides
-          // className="carousel-container"
+          infiniteLoop={true}
+          autoPlay={true}
+          interval={3000}
+          showStatus={false}
+          showThumbs={false}
+          showArrows={false}
+          transitionTime={600}
         >
           {testimonials.map((testimonial, index) => (
             <div key={index}>
