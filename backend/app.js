@@ -36,9 +36,7 @@ console.log(`Connected to MongoDB at URI: ${MONGO_URI}`);
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/nominees", nomineeRoutes);
-app.get("/", (req, res) => {
-  res.json("hello");
-});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
