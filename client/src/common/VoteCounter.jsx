@@ -90,7 +90,7 @@ const VoteCounter = ({ voteCount }) => {
                   <div>
                     <span
                       data-purecounter-start="0"
-                      data-purecounter-end="10"
+                      data-purecounter-end="6"
                       data-purecounter-duration="1"
                       className="purecounter text-[40px] font-bold block"
                     ></span>
