@@ -11,7 +11,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://vercel-deploy-evoting-project.vercel.app/", // Frontend URL
+    origin: "https://vercel-deploy-evoting-pro.vercel.app/", // Frontend URL
     credentials: true,
   })
 );
