@@ -98,8 +98,9 @@ const Vote = () => {
                   <img
                     src={`http://localhost:5500/${nominee.image}`}
                     alt={nominee.name}
-                    className="w-full h-64 object-cover rounded-xl "
+                    className="w-full h-64 object-cover object-top rounded-xl md:h-72 lg:h-96"
                   />
+
                   {/* Number of Votes */}
                   <p className="absolute bottom-2 right-2 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm">
                     Votes: {nominee.votes}
