@@ -175,9 +175,17 @@ const Vote = () => {
           width={700}
         >
           <h4 className="font-bold text-lg text-gray-800 mt-4">
+            Nominee Name:
+          </h4>
+          <p>{selectedNominee?.name}</p>
+          <h4 className="font-bold text-lg text-gray-800 mt-4">
             Nominee Details:
           </h4>
           <p>{selectedNominee?.description}</p>
+          <h4 className="font-bold text-lg text-gray-800 mt-4">
+            Nominee Votes:
+          </h4>
+          <p>{selectedNominee?.votes}</p>
         </Modal>
       </div>
     </>
