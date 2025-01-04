@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { HashLink as HLink } from "react-router-hash-link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import axios from "../utils/api";
 import { AppState } from "../App";
@@ -55,36 +56,38 @@ const HeaderPart = () => {
                 </Link>
               </li>
               <li className="relative">
-                <Link
-                  to="/:about"
+                <HLink
+                  to="#features"
                   className="block text-white lg:text-navcolor items-center justify-between whitespace-nowrap transition duration-300 px-4 py-2 lg:py-[18px] text-base font-[400] hover:text-accentcolor"
                 >
                   About
-                </Link>
+                </HLink>
               </li>
               <li className="relative">
-                <Link
-                  to="/:process"
+                <HLink
+                  to="#action"
+                  smooth
                   className="block text-white lg:text-navcolor  items-center justify-between whitespace-nowrap transition duration-300 px-4 py-2 lg:py-[18px] text-base font-[400] hover:text-accentcolor"
                 >
                   Process
-                </Link>
+                </HLink>
               </li>
               <li className="relative">
-                <Link
-                  to="/:status"
+                <HLink
+                  to="#counter"
+                  smooth
                   className="block text-white lg:text-navcolor  items-center justify-between whitespace-nowrap transition duration-300 px-4 py-2 lg:py-[18px] text-base font-[400] hover:text-accentcolor"
                 >
                   Status
-                </Link>
+                </HLink>
               </li>
               <li className="relative pr-0">
-                <Link
-                  to="/contact"
+                <HLink
+                  to="#contact"
                   className="block text-white lg:text-navcolor items-center justify-between whitespace-nowrap transition duration-300 px-4 py-2 lg:py-[18px] text-base font-[400] hover:text-accentcolor"
                 >
                   Contact
-                </Link>
+                </HLink>
               </li>
 
               {/* Get Started Button (centered in mobile menu) */}

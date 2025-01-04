@@ -11,18 +11,26 @@ import Footer from "../common/Footer";
 import { useVote } from "../context/VoteContext";
 const Home = () => {
   useEffect(() => {
-    new PureCounter(); // Initialize the counter
+    new PureCounter();
   }, []);
   const { voteCount } = useVote();
   return (
     <>
       <HeaderPart />
       <Main />
-      <VoteFeatures />
-      <CallToAction />
-      <VoteCounter voteCount={voteCount} />
+      <section id="features">
+        <VoteFeatures id="features" />
+      </section>
+      <section id="action">
+        <CallToAction />
+      </section>
+      <section id="counter">
+        <VoteCounter voteCount={voteCount} id="counter" />
+      </section>
       <Testimonial />
-      <Footer />
+      <section id="contact">
+        <Footer id="contact" />
+      </section>
     </>
   );
 };
