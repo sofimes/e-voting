@@ -11,7 +11,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://vercel-deploy-evoting-projects.vercel.app/", // Frontend URL
+    origin: "https://vercel-deploy-evoting-project.vercel.app/", // Frontend URL
     credentials: true,
   })
 );
@@ -36,7 +36,9 @@ console.log(`Connected to MongoDB at URI: ${MONGO_URI}`);
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/nominees", nomineeRoutes);
-
+app.get("/", (req, res) => {
+  res.json("hello");
+});
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
