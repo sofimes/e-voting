@@ -6,7 +6,6 @@ import bcrypt from "bcryptjs";
 
 const createAdmin = async () => {
   try {
-    // Check if an admin already exists
     const adminExists = await User.findOne({ role: "admin" });
     if (adminExists) {
       console.log("Admin user already exists.");
@@ -15,17 +14,15 @@ const createAdmin = async () => {
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash("0991500027", salt);
-    // Create the admin user if not found
     const admin = new User({
       fullName: "Sofanit Mesfin",
       password: hashedPassword,
       email: "sofanitmesfin19@gmail.com",
       age: "20",
       gender: "female",
-      role: "admin", // Set role to admin
+      role: "admin",
     });
 
-    // Save the admin user to the database
     const savedAdminUser = await admin.save();
 
     const adminDetails = new Admin({

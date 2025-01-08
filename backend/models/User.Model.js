@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true, // Email must be unique
+      unique: true,
       lowercase: true,
     },
     password: {
@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema(
       enum: ["admin", "user"],
       default: "user",
     },
-    // Add any other fields you need for your user model
   },
   {
     timestamps: true,

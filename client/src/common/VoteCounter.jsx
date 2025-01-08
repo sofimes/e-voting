@@ -99,9 +99,7 @@ const VoteCounter = ({ voteCount }) => {
                         Nominees
                       </strong>
                       <br />
-                      <span className="text-xl text-contrastcolor">
-                        {/* Adipisci atque cum quia */}
-                      </span>
+                      <span className="text-xl text-contrastcolor"></span>
                     </p>
                   </div>
                 </div>

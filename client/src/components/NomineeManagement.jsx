@@ -30,13 +30,11 @@ const NomineeManagement = () => {
     fetchNominees();
   }, []);
 
-  // Handle the edit click
   const handleEditClick = (nominee) => {
-    setEditNominee(nominee); // Populate the nominee data to be edited
-    setIsModalVisible(true); // Open the modal
+    setEditNominee(nominee);
+    setIsModalVisible(true);
   };
 
-  // Handle edit form submit
   const handleEditSubmit = async () => {
     const { _id, name, description } = editNominee;
 
@@ -64,7 +62,6 @@ const NomineeManagement = () => {
     }
   };
 
-  // Handle modal input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditNominee((prevState) => ({
@@ -73,7 +70,6 @@ const NomineeManagement = () => {
     }));
   };
 
-  // Delete nominee function
   const handleDeleteClick = async (id) => {
     Modal.confirm({
       title: "Are you sure you want to delete this nominee?",
@@ -83,14 +79,12 @@ const NomineeManagement = () => {
       onOk: async () => {
         try {
           const token = sessionStorage.getItem("jwt");
-          // Send DELETE request to the backend
           await axios.delete(`/nominees/delete/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
 
-          // Remove the nominee from the state after successful deletion
           setNominees((prev) => prev.filter((nominee) => nominee._id !== id));
 
           message.success("Nominee deleted successfully");

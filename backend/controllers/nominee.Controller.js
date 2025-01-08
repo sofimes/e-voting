@@ -80,10 +80,9 @@ export const deleteNominee = async (req, res) => {
 };
 export const editNominee = async (req, res) => {
   try {
-    const { id } = req.params; // Nominee ID from the URL
-    const { name, description } = req.body; // New data to update
+    const { id } = req.params;
+    const { name, description } = req.body;
 
-    // Validate the input
     if (!name || !description) {
       return res
         .status(400)
@@ -95,7 +94,6 @@ export const editNominee = async (req, res) => {
       return res.status(404).json({ message: "Nominee not found" });
     }
 
-    // Update the nominee
     nominee.name = name;
     nominee.description = description;
     await nominee.save();

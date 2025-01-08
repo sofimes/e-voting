@@ -4,12 +4,12 @@ const adminSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // Reference to the User model
+      ref: "User",
       required: true,
     },
     department: {
       type: String,
-      required: false, // Optional field for admin's department
+      required: false,
     },
     permissions: {
       type: [String],
@@ -17,7 +17,7 @@ const adminSchema = new mongoose.Schema(
     },
     isSuperAdmin: {
       type: Boolean,
-      default: false, // To distinguish between regular admins and superadmins
+      default: false,
     },
   },
   {

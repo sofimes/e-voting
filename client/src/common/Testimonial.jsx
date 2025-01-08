@@ -113,7 +113,6 @@ const Testimonials = () => {
                   ))}
                 </div>
                 <p className="italic text-gray-300 relative">
-                  {/* Adding Quote Marks Around the Review */}
                   <span className=" top-1/2 transform -translate-y-1/2 text-4xl text-gray-400">
                     “
                   </span>
