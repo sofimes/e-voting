@@ -14,7 +14,7 @@ const Main = () => {
         src={img1}
         alt=""
         data-aos="fade-in"
-        className="absolute w-full h-full inset-0 block object-cover z-1"
+        className="absolute w-full h-full inset-0 block object-cover object-center z-1"
       />
       <div className="container relative z-[3] ">
         <div
@@ -46,82 +46,7 @@ const Main = () => {
           </div>
           <div></div>
         </div>
-        {/* <div
-          className="justify-center mt-5 gap-y-4 flex flex-wrap"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div
-            className="col-span-12 md:col-span-4 xl:col-span-2 px-4"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div className="p-[30px_20px]  items-center flex flex-col justify-center text-center transition ease-in-out duration-300  border-color-mix hover:border-accentcolor hover:text-accentcolor">
-              <i className="font-[32px] text-accentcolor leading-[1] bi bi-binoculars"></i>
-              <h3 className="font-bold mt-[10px] mb-0 ml-0 mr-0 p-0 leading-[1] text-[20px]">
-                <Link className="transition ease-in-out text-color-mix hover:text-accentcolor">
-                  <span className=" text-cyan-500">E</span>fficient
-                </Link>
-              </h3>
-            </div>
-          </div>
-          <div
-            className="col-span-12 md:col-span-4 xl:col-span-2 px-4"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div className="p-[30px_20px]  items-center flex flex-col justify-center text-center transition ease-in-out duration-300  border-color-mix hover:border-accentcolor hover:text-accentcolor">
-              <i className="font-[32px] text-accentcolor leading-[1] bi bi-binoculars"></i>
-              <h3 className="font-bold mt-[10px] mb-0 ml-0 mr-0 p-0 leading-[1] text-[20px]">
-                <Link className="transition ease-in-out text-color-mix hover:text-accentcolor">
-                  <span className=" text-cyan-500">V</span>erifiable
-                </Link>
-              </h3>
-            </div>
-          </div>
-          <div
-            className="col-span-12 md:col-span-4 xl:col-span-2 px-4"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div className="p-[30px_20px]  items-center flex flex-col justify-center text-center transition ease-in-out duration-300  border-color-mix hover:border-accentcolor hover:text-accentcolor">
-              <i className="font-[32px] text-accentcolor leading-[1] bi bi-binoculars"></i>
-              <h3 className="font-bold mt-[10px] mb-0 ml-0 mr-0 p-0 leading-[1] text-[20px]">
-                <Link className="transition ease-in-out text-color-mix hover:text-accentcolor">
-                  <span className=" text-cyan-500">O</span>ptimized
-                </Link>
-              </h3>
-            </div>
-          </div>
-          <div
-            className="col-span-12 md:col-span-4 xl:col-span-2 px-4"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div className="p-[30px_20px]  items-center flex flex-col justify-center text-center transition ease-in-out duration-300  border-color-mix hover:border-accentcolor hover:text-accentcolor">
-              <i className="font-[32px] text-accentcolor leading-[1] bi bi-binoculars"></i>
-              <h3 className="font-bold mt-[10px] mb-0 ml-0 mr-0 p-0 leading-[1] text-[20px]">
-                <Link className="transition ease-in-out text-color-mix hover:text-accentcolor">
-                  <span className=" text-cyan-500">T</span>ransparent
-                </Link>
-              </h3>
-            </div>
-          </div>
-          <div
-            className="col-span-12 md:col-span-4 xl:col-span-2 px-4"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div className="p-[30px_20px]  items-center flex flex-col justify-center text-center transition ease-in-out duration-300  border-color-mix hover:border-accentcolor hover:text-accentcolor">
-              <i className="font-[32px] text-accentcolor leading-[1] bi bi-binoculars"></i>
-              <h3 className="font-bold mt-[10px] mb-0 ml-0 mr-0 p-0 leading-[1] text-[20px]">
-                <Link className="transition ease-in-out text-color-mix hover:text-accentcolor">
-                  <span className=" text-cyan-500">E</span>asy-to-use
-                </Link>
-              </h3>
-            </div>
-          </div>
-        </div> */}
+
         <motion.div
           className="justify-center mt-5 gap-y-4 flex flex-wrap"
           initial={{ opacity: 0 }}
