@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LuLockKeyhole } from "react-icons/lu";
-import img2 from "../assets/images/features-bg.jpg";
+import img2 from "../assets/images/bg.png";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
 import { MdOutlinePhoneAndroid } from "react-icons/md";
