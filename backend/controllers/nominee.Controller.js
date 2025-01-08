@@ -63,3 +63,46 @@ export const addNominee = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+export const deleteNominee = async (req, res) => {
+  try {
+    const nomineeId = req.params.id;
+    const nominee = await Nominee.findByIdAndDelete(nomineeId);
+
+    if (!nominee) {
+      return res.status(404).json({ message: "Nominee not found" });
+    }
+
+    res.status(200).json({ message: "Nominee deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error deleting nominee" });
+  }
+};
+export const editNominee = async (req, res) => {
+  try {
+    const { id } = req.params; // Nominee ID from the URL
+    const { name, description } = req.body; // New data to update
+
+    // Validate the input
+    if (!name || !description) {
+      return res
+        .status(400)
+        .json({ message: "Name and description are required" });
+    }
+
+    const nominee = await Nominee.findById(id);
+    if (!nominee) {
+      return res.status(404).json({ message: "Nominee not found" });
+    }
+
+    // Update the nominee
+    nominee.name = name;
+    nominee.description = description;
+    await nominee.save();
+
+    res.status(200).json({ message: "Nominee updated successfully", nominee });
+  } catch (error) {
+    console.error("Error editing nominee:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};

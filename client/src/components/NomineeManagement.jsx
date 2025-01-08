@@ -1,8 +1,11 @@
-import { Table, Button, message } from "antd";
+import { Table, Button, message, Modal, Input } from "antd";
 import { useEffect, useState } from "react";
 import axios from "../utils/api";
+
 const NomineeManagement = () => {
   const [nominees, setNominees] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [editNominee, setEditNominee] = useState(null);
 
   useEffect(() => {
     const fetchNominees = async () => {
@@ -18,7 +21,6 @@ const NomineeManagement = () => {
           },
         });
         setNominees(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching nominees:", error.message);
         message.error("Failed to fetch nominees. Please try again later.");
@@ -28,6 +30,78 @@ const NomineeManagement = () => {
     fetchNominees();
   }, []);
 
+  // Handle the edit click
+  const handleEditClick = (nominee) => {
+    setEditNominee(nominee); // Populate the nominee data to be edited
+    setIsModalVisible(true); // Open the modal
+  };
+
+  // Handle edit form submit
+  const handleEditSubmit = async () => {
+    const { _id, name, description } = editNominee;
+
+    if (!name || !description) {
+      message.error("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const token = sessionStorage.getItem("jwt");
+      await axios.put(
+        `/nominees/edit/${_id}`,
+        { name, description },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      message.success("Nominee updated successfully");
+      setIsModalVisible(false);
+    } catch (error) {
+      console.error("Error editing nominee:", error.message);
+      message.error("Failed to update nominee. Please try again later.");
+    }
+  };
+
+  // Handle modal input change
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditNominee((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  // Delete nominee function
+  const handleDeleteClick = async (id) => {
+    Modal.confirm({
+      title: "Are you sure you want to delete this nominee?",
+      okText: "Yes",
+      okType: "danger",
+      cancelText: "No",
+      onOk: async () => {
+        try {
+          const token = sessionStorage.getItem("jwt");
+          // Send DELETE request to the backend
+          await axios.delete(`/nominees/delete/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          // Remove the nominee from the state after successful deletion
+          setNominees((prev) => prev.filter((nominee) => nominee._id !== id));
+
+          message.success("Nominee deleted successfully");
+        } catch (error) {
+          console.error("Error deleting nominee:", error.message);
+          message.error("Failed to delete nominee. Please try again later.");
+        }
+      },
+    });
+  };
+
   const columns = [
     { title: "Nominee ID", dataIndex: "_id", key: "_id" },
     { title: "Name", dataIndex: "name", key: "name" },
@@ -36,8 +110,14 @@ const NomineeManagement = () => {
       key: "actions",
       render: (text, record) => (
         <div className="flex gap-2">
-          <Button type="link">Edit</Button>
-          <Button type="link" danger>
+          <Button type="link" onClick={() => handleEditClick(record)}>
+            Edit
+          </Button>
+          <Button
+            type="link"
+            danger
+            onClick={() => handleDeleteClick(record._id)}
+          >
             Delete
           </Button>
         </div>
@@ -45,7 +125,32 @@ const NomineeManagement = () => {
     },
   ];
 
-  return <Table columns={columns} dataSource={nominees} rowKey="id" />;
+  return (
+    <>
+      <Table columns={columns} dataSource={nominees} rowKey="_id" />
+
+      <Modal
+        title="Edit Nominee"
+        visible={isModalVisible}
+        onOk={handleEditSubmit}
+        onCancel={() => setIsModalVisible(false)}
+      >
+        <Input
+          name="name"
+          value={editNominee?.name}
+          onChange={handleInputChange}
+          placeholder="Nominee Name"
+        />
+        <Input
+          name="description"
+          value={editNominee?.description}
+          onChange={handleInputChange}
+          placeholder="Nominee Description"
+          style={{ marginTop: 10 }}
+        />
+      </Modal>
+    </>
+  );
 };
 
 export default NomineeManagement;

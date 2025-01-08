@@ -4,6 +4,8 @@ import {
   getNominees,
   voteNominee,
   addNominee,
+  deleteNominee,
+  editNominee,
 } from "../controllers/nominee.Controller.js";
 import { authMiddleware, adminAuth } from "../middleware/auth.js";
 
@@ -27,5 +29,6 @@ router.post(
   addNominee
 );
 router.put("/vote/:id", authMiddleware, voteNominee);
-
+router.put("/edit/:id", authMiddleware, editNominee);
+router.delete("/delete/:id", authMiddleware, deleteNominee);
 export default router;
