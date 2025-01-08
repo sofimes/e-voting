@@ -6,6 +6,7 @@ import { PORT, MONGO_URI, COOKIE_SESSION_KEY } from "./config/config.js";
 import cookieParser from "cookie-parser";
 import cookieSession from "cookie-session";
 import nomineeRoutes from "./routes/nominee.routes.js";
+import voterRoutes from "./routes/voter.routes.js";
 const app = express();
 
 // Middleware
@@ -36,7 +37,7 @@ console.log(`Connected to MongoDB at URI: ${MONGO_URI}`);
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/nominees", nomineeRoutes);
-
+app.use("/api/voters", voterRoutes);
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
