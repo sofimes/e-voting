@@ -17,7 +17,7 @@ const nomineeSchema = new mongoose.Schema(
     },
     votes: {
       type: Number,
-      default: 0, // Track the number of votes
+      default: 0,
     },
   },
   {
