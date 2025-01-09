@@ -7,7 +7,7 @@ export const useVote = () => {
 };
 
 export const VoteProvider = ({ children }) => {
-  const [voteCount, setVoteCount] = useState(232);
+  const [voteCount, setVoteCount] = useState(4);
 
   const incrementVote = () => {
     setVoteCount((prevCount) => prevCount + 1);
