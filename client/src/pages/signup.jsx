@@ -96,19 +96,7 @@ function SignupPage() {
             className="border-2 border-gray-400 rounded-full w-full px-4 py-2 outline-none"
           />
         </div>
-        {/* <div className="mb-4">
-          <label htmlFor="username" className="block font-bold text-white mb-2">
-            Gender
-          </label>
-          <input
-            type="text"
-            id="username"
-            value={gender}
-            onChange={(e) => setGenderValue(e.target.value)}
-            onFocus={handleFocus}
-            className="border-2 border-gray-400 rounded-full w-full px-4 py-2 outline-none"
-          />
-        </div> */}
+
         <div className="mb-4">
           <label htmlFor="gender" className="block font-bold text-white mb-2">
             Gender
