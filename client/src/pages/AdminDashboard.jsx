@@ -36,6 +36,9 @@ const AdminLayout = () => {
             Admin Panel
           </div>
           <Menu theme="dark" mode="inline" className="bg-gray-900">
+            {/* <Menu.Item key="1" icon={<BarChartOutlined />}>
+              <Link to="/admin-dashboard/dashboard">Dashboard</Link>
+            </Menu.Item> */}
             <Menu.Item key="2" icon={<UserOutlined />}>
               <Link to="/admin-dashboard/voter-management">
                 Voter Management
