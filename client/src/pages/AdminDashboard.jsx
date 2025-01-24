@@ -85,7 +85,6 @@ const AdminLayout = () => {
 
         <Layout>
           <Header className="bg-white shadow-md px-6 pt-4 flex items-center justify-between">
-            {/* Menu button for smaller screens */}
             <Button
               type="text"
               icon={
