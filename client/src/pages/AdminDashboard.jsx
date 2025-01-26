@@ -95,12 +95,7 @@ const AdminLayout = () => {
             />
 
             <h2 className="text-2xl font-bold">Admin Dashboard</h2>
-            <Link
-              to="#"
-              // className="hover:text-white text-sm px-5 py-2 rounded-md text-black transition duration-300 hover:bg-accentcolor"
-            >
-              {/* Logout */}
-            </Link>
+            <Link to="#">{/* Logout */}</Link>
           </Header>
           <Content className="p-6 bg-gray-100">
             <Outlet />
